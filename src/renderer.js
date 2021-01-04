@@ -1,31 +1,19 @@
 function sendToPython() {
-  var {PythonShell} = require('python-shell');
-  result.textContent = '123';
+  var { PythonShell } = require('python-shell');
 
   let options = {
     mode: 'text',
     args: [input.value]
   };
-
-  PythonShell.run('./py/calc.py', options, function (err, results) {
+  //console.log(options);
+  PythonShell.run('./py/calc.py', options, function (err) {
     if (err) throw err;
-    console.log('fuction done');
-    // результаты - это массив, состоящий из сообщений, собранных во время выполнения
-    //console.log('results: ', results);
-    result.textContent = 'somethingelse';
-  });
-
-  python.stderr.on('data', (data) => {
-    console.error(`stderr: ${data}`);
-  });
-
-  python.on('close', (code) => {
-    console.log(`child process exited with code ${code}`);
+    //result.textContent = results;
   });
 }
 
 btn.addEventListener('click', () => {
-  result.textContent = 'url';
+  //result.textContent = 'url';
   sendToPython();
 });
 
