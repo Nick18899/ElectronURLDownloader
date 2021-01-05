@@ -5,15 +5,12 @@ function sendToPython() {
     mode: 'text',
     args: [input.value]
   };
-  //console.log(options);
   PythonShell.run('./py/calc.py', options, function (err) {
     if (err) throw err;
-    //result.textContent = results;
   });
 }
 
 btn.addEventListener('click', () => {
-  //result.textContent = 'url';
   sendToPython();
 });
 
